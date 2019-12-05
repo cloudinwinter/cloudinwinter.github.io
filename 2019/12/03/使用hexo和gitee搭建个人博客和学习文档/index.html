@@ -268,14 +268,13 @@
 <p><strong>友情提示：使用淘宝的镜像地址(<a href="http://npm.taobao.org/)，使用cnpm命令安装对应文件" target="_blank" rel="noopener">http://npm.taobao.org/)，使用cnpm命令安装对应文件</a></strong></p>
 <h3 id="使用hexo生成blog需要的静态资源"><a href="#使用hexo生成blog需要的静态资源" class="headerlink" title="使用hexo生成blog需要的静态资源"></a>使用hexo生成blog需要的静态资源</h3><p>—-&gt;   <a href="https://hexo.io/zh-cn" target="_blank" rel="noopener">hexo官网地址</a>,需要了解的可以自己看看。</p>
 <p>1.打开git 安装后的客户端工具git bash（和cmd窗口打开方式相同），执行安装hexo的命令</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span></pre></td></tr></table></figure>
-
+<pre><code class="java">npm install -g hexo-cli</code></pre>
 <p>2.验证node.js,git,hexo的安转效果</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">node --version</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">hexo --version</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">git --version</span></pre></td></tr></table></figure>
-
+<pre><code class="java">node --version
+hexo --version
+git --version</code></pre>
 <p>3.使用git bash 切换到对应目录，执行以下命令，会在<strong>当前目录</strong>生成对应的文件夹</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">hexo init blog</span></pre></td></tr></table></figure>
-
+<pre><code class="java">hexo init blog</code></pre>
 <p>目录结构展示如下:</p>
 <p><img src="/image-20191203114556449.png" alt="image-20191203114556449"></p>
 <h3 id="修改配置文件完成本地访问blog"><a href="#修改配置文件完成本地访问blog" class="headerlink" title="修改配置文件完成本地访问blog"></a>修改配置文件完成本地访问blog</h3><ol>
@@ -285,10 +284,12 @@
 <li><p>按照hexo官网文档完成_config.yml的配置。暂时不修改也是可以的。</p>
 </li>
 <li><p>在hexo生成的根目录下执行命令，并完成本地访问。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">   # 清除之前生成的静态文件</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">   hexo clean</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">   # 生成文件并部署网站，生成的文件存放于public文件夹下</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">   hexo g -d </span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">   # 启用服务 -p 参数指定端口号，执行完成后会提示你本地的访问路径,执行ctrl + c退出服务</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">hexo server</span></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java"># 清除之前生成的静态文件
+hexo clean
+# 生成文件并部署网站，生成的文件存放于public文件夹下
+hexo g -d 
+# 启用服务 -p 参数指定端口号，执行完成后会提示你本地的访问路径,执行ctrl + c退出服务
+hexo server</code></pre>
 </li>
 </ol>
 <h3 id="建立远程仓库"><a href="#建立远程仓库" class="headerlink" title="建立远程仓库"></a>建立远程仓库</h3><p><strong>注意</strong>：首先你需要有对应的账号，完成git用户和ssh（下拉和推送数据到远程仓库的免密配置）的配置。</p>
@@ -296,16 +297,18 @@
 <li><p>github参照<a href="https://pages.github.com/页面中的介绍建立仓库。" target="_blank" rel="noopener">https://pages.github.com/页面中的介绍建立仓库。</a></p>
 </li>
 <li><p>将github的地址配置到_config.yml文件中,在注解中对应的属性的配置都有对应的链接地址</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">deploy:</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">  type: git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">  #仓库的ssh地址</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">  repository: git<span class="meta">@github</span>.com:cloudinwinter/cloudinwinter.github.io.git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">  branch: master</span></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">deploy:
+  type: git
+  #仓库的ssh地址
+  repository: git@github.com:cloudinwinter/cloudinwinter.github.io.git
+  branch: master</code></pre>
 </li>
 </ol>
 <ol start="3">
 <li><p>执行命令将hexo生成的静态数据推送到远程仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#出现ERROR Deployer not found: git错误  执行npm install --save hexo-deployer-git</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">hexo d</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line"># 还可能出现本地ssh秘钥配置错误</span></pre></td></tr></table></figure>
-</li>
+<pre><code>#出现ERROR Deployer not found: git错误  执行npm install --save hexo-deployer-git
+hexo d
+# 还可能出现本地ssh秘钥配置错误</code></pre></li>
 <li><p>访问远程博客的地址：<a href="https://cloudinwinter.github.io/">https://cloudinwinter.github.io/</a></p>
 </li>
 </ol>
@@ -315,10 +318,12 @@
 <p>3.完成blog的访问：<a href="http://cloudinwinter.gitee.io/blog/" target="_blank" rel="noopener">http://cloudinwinter.gitee.io/blog/</a></p>
 <p>4.你完成文章更新后，可能需要在gitee pages页面点击更新才会有效。</p>
 <h4 id="部署gitee时出现css和js无法加载解决"><a href="#部署gitee时出现css和js无法加载解决" class="headerlink" title="部署gitee时出现css和js无法加载解决"></a>部署gitee时出现css和js无法加载解决</h4><p>原因：部署在gitee和github的除git仓库地址需要修改之外，还需要修改一下_config.yml的如下配置不同</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">#github</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">url: https:<span class="comment">//cloudinwinter.github.io/</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">root: /</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">#gitee</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">url: http:<span class="comment">//cloudinwinter.gitee.io/blog</span></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">root: /blog</span></pre></td></tr></table></figure>
-
-
-
+<pre><code class="java">#github
+url: https://cloudinwinter.github.io/
+root: /
+#gitee
+url: http://cloudinwinter.gitee.io/blog
+root: /blog</code></pre>
 <h3 id="blog主题修改"><a href="#blog主题修改" class="headerlink" title="blog主题修改"></a>blog主题修改</h3><p>下载你需要的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a>（blog的最终显示效果）访问不了可以换一个浏览器试试,选中你需要的主题，然后进入对应主题的github地址，查看对应的说明文档。</p>
 <p>a. 这里我下载的主题是 <a href="https://github.com/tomotoes/hexo-theme-tomotoes/wiki" target="_blank" rel="noopener">tomotoes</a>，安装步骤参照文档即可。</p>
 <p>b.部分配置地址记录</p>
