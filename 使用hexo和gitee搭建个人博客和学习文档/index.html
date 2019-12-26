@@ -225,7 +225,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-26 17:14:13'>2019-12-03 17:35</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-26 20:38:13'>2019-12-03 17:35</time>
         
     </div>
     <div class="article-meta">
@@ -329,10 +329,106 @@ url: http://cloudinwinter.gitee.io/blog
 root: /blog</code></pre>
 <h3 id="blog主题修改"><a href="#blog主题修改" class="headerlink" title="blog主题修改"></a>blog主题修改</h3><p>下载你需要的<a href="https://hexo.io/themes/" target="_blank" rel="noopener">主题</a>（blog的最终显示效果）访问不了可以换一个浏览器试试,选中你需要的主题，然后进入对应主题的github地址，查看对应的说明文档。</p>
 <p>a. 这里我下载的主题是 <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank" rel="noopener">3-hexo</a>，安装步骤参照文档即可。</p>
-<h3 id="blog相关配置"><a href="#blog相关配置" class="headerlink" title="blog相关配置"></a>blog相关配置</h3><p>b.部分配置地址记录(gittalk评论模块依赖于github的评论模块，需要github账号)</p>
-<p>gittalk：<a href="https://github.com/settings/applications/1182413" target="_blank" rel="noopener">https://github.com/settings/applications/1182413</a></p>
-<h3 id="配置自定义域名访问blog"><a href="#配置自定义域名访问blog" class="headerlink" title="配置自定义域名访问blog"></a>配置自定义域名访问blog</h3><p><a href="https://support.huaweicloud.com/productdesc-dns/zh-cn_topic_0035920135.html" target="_blank" rel="noopener">域名解析配置</a></p>
+<h3 id="blog相关配置"><a href="#blog相关配置" class="headerlink" title="blog相关配置"></a>blog相关配置</h3><ol>
+<li><p>gittalk：<a href="https://github.com/settings/applications/1182413" target="_blank" rel="noopener">https://github.com/settings/applications/1182413</a> (gittalk评论模块依赖于github的评论模块，需要github账号)</p>
+</li>
+<li><p><a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener">不蒜子网站访问计数配置</a></p>
+</li>
+<li><p>配置文件记录，请自行调整 ，具体配置参考官方文档</p>
+<pre><code>title: 摘星楼
+subtitle: &#39;emptycloud`s blog&#39;
+description: &#39;用于学习和记录&#39;
+keywords:
+author: cloudinwinter
+language: zh-CN
+timezone: &#39;Asia/Shanghai&#39;
+
+skip_render: CNAME
+
+root as &#39;/child/&#39;
+url: https://cloudinwinter.github.io/
+root: /
+#url: http://cloudinwinter.gitee.io/blog
+#root: /blog
+permalink: :title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing index.html from permalinks
+
+source_dir: source      
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: &#39;&#39;
+filename_case: 0
+render_drafts: false
+post_asset_folder: true
+relative_link: false
+future: true
+highlight:
+  enable: false
+  line_number: true
+  auto_detect: false
+  tab_replace: &#39;&#39;
+index_generator:
+  path: &#39;&#39;
+  per_page: 10
+  order_by: -date
+
+default_category: uncategorized
+category_map:
+tag_map:
+
+meta_generator: true
+
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+use_date_for_updated: false
+
+per_page: 10
+pagination_dir: page
+include:
+exclude:
+ignore:
+theme: 3-hexo
+deploy:
+  type: git
+  repository: git@github.com:cloudinwinter/cloudinwinter.github.io.git
+  #repository: git@gitee.com:cloudinwinter/blog.git
+  branch: master</code></pre></li>
+</ol>
+<h3 id="配置自定义域名访问blog"><a href="#配置自定义域名访问blog" class="headerlink" title="配置自定义域名访问blog"></a>配置自定义域名访问blog</h3><p>我使用的是华为云的服务，不过大致流程应该是一样的。流程如下：</p>
+<ol>
+<li><a href="http://www.freenom.com/zh/index.html" target="_blank" rel="noopener">免费的域名</a>  申请请搜索相关文章) </li>
+<li>免费的域名解析，大家自己搜索一下吧。</li>
+</ol>
+<p>购买域名 –&gt; 等待  –&gt; 实名认证（先查看认证是否审核通过） –&gt; 配置解析 –&gt; 修改github的配置</p>
+<ol>
+<li><p><a href="https://support.huaweicloud.com/productdesc-dns/zh-cn_topic_0035920135.html" target="_blank" rel="noopener">域名解析配置</a></p>
+</li>
+<li><p>github的域名配置在blog项目的settings界面。</p>
 <p><img src="/.io//D:%5CjavaProjectDoc%5Cblogimg%5Cimg%5Cimage-20191226162644289.png" alt="image-20191226162644289"></p>
+</li>
+</ol>
+<p>注意：配置后在仓库中会出现文件对应的配置文件CNAME，github依靠这个切换访问地址，所以你需要将文件放置到你的hexo根目录的source文件夹下。<a href="https://blog.csdn.net/xfdywy/article/details/79720070#3-dns%E8%A7%A3%E6%9E%90" target="_blank" rel="noopener">参考hexo自定义域名及解析</a></p>
+<p>修改 _config.yml 文件:</p>
+<pre><code>skip_render: CNAME</code></pre><p>执行命令：</p>
+<pre><code>hexo clean
+hexo g -d</code></pre><p>最终成功如下：</p>
+<p><img src="/.io//D:%5CjavaProjectDoc%5Cblogimg%5Cimg%5Cimage-20191226203653392.png" alt="image-20191226203653392"></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1773678210@qq.com </span>
@@ -350,7 +446,7 @@ root: /blog</code></pre>
     
     <p><span class="copy-title">本文作者:</span><a  title="cloudinwinter">cloudinwinter</a></p>
     <p><span class="copy-title">发布时间:</span>2019-12-03, 17:35:11</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-26, 17:14:13</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-26, 20:38:13</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgitee%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%92%8C%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/" title="使用hexo和gitee搭建个人博客">https://cloudinwinter.github.io/%E4%BD%BF%E7%94%A8hexo%E5%92%8Cgitee%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%92%8C%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
